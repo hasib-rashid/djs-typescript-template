@@ -4,7 +4,6 @@ import Config from "../constants/config";
 import Logger from "../helpers/logger";
 import Command from "../constants/command";
 import Event from "../constants/event";
-import NewMessageEmbed from "../helpers/MessageEmbed";
 
 export const numberOfCommands: any = []
 export const totalCommands: any = numberOfCommands[0] + numberOfCommands[1] + numberOfCommands[2] + numberOfCommands[3] + numberOfCommands[4] + numberOfCommands[5] + numberOfCommands[6] + numberOfCommands[7] + numberOfCommands[8] + numberOfCommands[9] + numberOfCommands[10]
@@ -29,18 +28,13 @@ export default class BotClient extends Client {
     public ownerID: string;
     public emotes;
     public shit;
-    public MessageEmbed = NewMessageEmbed;
     public distube: any;
     // @ts-ignore
     public countryCache: CountryResponse[];
 
     constructor(config: Config) {
         super({
-            ws: {
-                intents: Intents.ALL,
-                properties: { $browser: "Discord Android" },
-            },
-            disableMentions: "everyone",
+            intents: Intents.FLAGS.GUILDS || Intents.FLAGS.DIRECT_MESSAGES,
         });
 
         this.prefix = config.prefix || "`";

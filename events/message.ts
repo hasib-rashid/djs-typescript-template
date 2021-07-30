@@ -3,7 +3,6 @@ dotenv.config()
 import { Message } from "discord.js";
 // @ts-ignore
 import Nuggies from 'nuggies'
-import { Aki } from 'aki-api.ts'
 import Event from "../constants/event";
 import { stripIndents } from "common-tags";
 import Collection from "@discordjs/collection";
@@ -16,7 +15,7 @@ const cooldowns: Collection<string, Collection<string, number>> = new Collection
 const MessageEvent: Event = {
     name: "message",
     async run(client, message: Message) {
-        if (message.author.bot || message.webhookID) return;
+        if (message.author.bot || message.webhookId) return;
 
         // Will keep plugins here
         const prefix = "." //TODO Dynamic Prefix

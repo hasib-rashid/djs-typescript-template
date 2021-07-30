@@ -1,10 +1,10 @@
-import { default as consola } from 'consola'
+import consola from 'consola'
 
 const Logger = {
-    error: (name: string, output: string): void => consola.error(output),
-    warn: (name: string, output: string): void => consola.warn(output),
-    info: (name: string, output: string): void => consola.info(output),
-    success: (name: string, output: string): void => consola.success(output),
+    error: (name: string, output: string): void => console.error(output),
+    warn: (name: string, output: string): void => console.warn(output),
+    info: (name: string, output: string): void => console.info(output),
+    success: (name: string, output: string): void => console.log(output),
 };
 
 export default Logger;
