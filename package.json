@@ -24,7 +24,8 @@
 	},
 	"homepage": "https://github.com/hasib-rashid/djs-typescript-base#readme",
 	"dependencies": {
-		"discord.js": "^13.0.0-dev.2675b08.1627603447"
+		"discord.js": "^13.0.0-dev.2675b08.1627603447",
+		"dotenv": "^10.0.0"
 	},
 	"devDependencies": {
 		"@types/common-tags": "^1.8.0",
