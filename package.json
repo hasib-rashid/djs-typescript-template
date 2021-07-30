@@ -8,19 +8,21 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/CodeFictions/CodeVert.git"
+		"url": "git+https://github.com/hasib-rashid/djs-typescript-base.git"
 	},
 	"keywords": [
 		"discord.js",
 		"bot",
-		"utility-bot"
+		"base",
+		"discord-base",
+		"bot-base"
 	],
 	"author": "Hasib Al Rashid",
 	"license": "MIT",
 	"bugs": {
-		"url": "https://github.com/CodeFictions/CodeVert/issues"
+		"url": "https://github.com/hasib-rashid/djs-typescript-base/issues"
 	},
-	"homepage": "https://github.com/CodeFictions/CodeVert#readme",
+	"homepage": "https://github.com/hasib-rashid/djs-typescript-base#readme",
 	"dependencies": {
 		"discord.js": "^13.0.0-dev.2675b08.1627603447"
 	},
