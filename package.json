@@ -21,7 +21,9 @@
 		"url": "https://github.com/CodeFictions/CodeVert/issues"
 	},
 	"homepage": "https://github.com/CodeFictions/CodeVert#readme",
-	"dependencies": {},
+	"dependencies": {
+		"discord.js": "^13.0.0-dev.2675b08.1627603447"
+	},
 	"devDependencies": {
 		"@types/common-tags": "^1.8.0",
 		"@types/node": "^15.3.0",
