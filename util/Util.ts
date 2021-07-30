@@ -51,22 +51,6 @@ export function trimArray(arr: any, maxLen = 10) {
     return arr;
 }
 
-export async function verify(message: Message) {
-    const yes = ["yes", "y", "ye", "yeah", "yep", "yup", "yea"];
-    const no = ["no", "n", "nope", "nah", "never", "nop"];
-
-    const verify = await message.channel.awaitMessages((res: Message) => res.author.id === message.author.id && (yes.includes(res.content.toLowerCase()) || no.includes(res.content.toLowerCase())), {
-        max: 1,
-        time: 60 * 1000,
-    });
-
-    if (!verify.size) return 0;
-    // @ts-ignore
-    if (yes.includes(verify.first()?.content.toLowerCase())) return true;
-
-    return false;
-}
-
 export function shuffle(arr: any) {
     for (let i = arr.length - 1; i >= 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));

@@ -6,40 +6,6 @@ const no = ['no', 'n', 'nah', 'nope', 'fuck off'];
 const inviteRegex = /(https?:\/\/)?(www\.|canary\.|ptb\.)?discord(\.gg|(app)?\.com\/invite|\.me)\/([^ ]+)\/?/gi;
 const botInvRegex = /(https?:\/\/)?(www\.|canary\.|ptb\.)?discord(app)\.com\/(api\/)?oauth2\/authorize\?([^ ]+)\/?/gi;
 
-export function getMember(message: Message, toFind = '') {
-    toFind = toFind.toLowerCase();
-
-    let target = message.guild?.members.cache.get(toFind);
-
-    if (!target && message.mentions.members)
-        target = message.mentions.members.first();
-
-    if (!target && toFind) {
-        target = message.guild?.members.cache.find(member => {
-            return member.displayName.toLowerCase().includes(toFind) ||
-                member.user.tag.toLowerCase().includes(toFind)
-        });
-    }
-
-    if (!target) {
-        (target: User) => message.author;
-    }
-
-    return target;
-}
-
-export async function promptMessage(message: Message, author: User, time: number, validReactions: any) {
-    time *= 1000;
-
-    for (const reaction of validReactions) await message.react(reaction);
-
-    const filter = (reaction: any, user: User) => validReactions.includes(reaction.emoji.name) && user.id === author.id;
-
-    return message
-        .awaitReactions(filter, { max: 1, time: time })
-        .then(collected => collected.first() && collected.first()?.emoji.name);
-}
-
 export function delay(ms: number) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
