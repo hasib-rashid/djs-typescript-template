@@ -19,7 +19,21 @@ export default class BotClient extends Client {
 
     constructor(config: Config) {
         super({
-            intents: Intents.FLAGS.GUILDS || Intents.FLAGS.DIRECT_MESSAGES,
+            intents: [
+                "GUILD_MEMBERS",
+                "GUILDS",
+                "GUILD_MEMBERS",
+                "DIRECT_MESSAGES",
+                "DIRECT_MESSAGE_TYPING",
+                "GUILD_MESSAGES",
+                "GUILD_MESSAGE_REACTIONS",
+                "GUILD_INTEGRATIONS",
+                "GUILD_EMOJIS_AND_STICKERS",
+                "GUILD_PRESENCES"
+            ],
+            ws: {
+                properties: { $browser: "Discord Android" },
+            },
         });
 
         this.prefix = config.prefix || "`";

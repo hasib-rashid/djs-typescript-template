@@ -1,9 +1,8 @@
 import { config } from "dotenv";
 config();
 import Client from "./classes/client";
-import { formatNumber } from "./util/Util";
 
-const client = new Client({
+new Client({
     token: process.env.TOKEN,
     ownerID: "548038495617417226",
     commandDir: `${__dirname}/commands`,

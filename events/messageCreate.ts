@@ -8,12 +8,14 @@ import Collection from "@discordjs/collection";
 const cooldowns: Collection<string, Collection<string, number>> = new Collection();
 
 const MessageEvent: Event = {
-    name: "message",
+    name: "messageCreate",
     async run(client, message: Message) {
         if (message.author.bot || message.webhookId) return;
 
         // Will keep plugins here
         const prefix = "." //TODO Dynamic Prefix
+
+        if (message.content === prefix) return;
 
         if (!message.content.toLowerCase().startsWith(prefix.toLowerCase())) return;
 
@@ -57,12 +59,11 @@ const MessageEvent: Event = {
         setTimeout(() => timestamps?.delete(message.author.id), cooldownAmount);
 
         try {
-            command.run(client, message, args);
+            command.run(client, message, args).then(() => console.log("Running?"));
         }
         catch (err) {
             client.logger.error("client/commands", stripIndents(`
 				Command Name: ${command.name}
-
 				Error: ${err.message}
 			`));
         }

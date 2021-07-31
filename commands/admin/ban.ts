@@ -13,6 +13,7 @@ const BanCommand: Command = {
     cooldown: 0,
 
     async run(client, message, args) {
+        console.log("Bhai")
         // @ts-ignore
         message.member?.ban(message.mentions.users.first())
     },
